@@ -13,12 +13,12 @@ app.get("/", function(req, res) {
 });
 // fetch what user types into the form.
 app.post("/", function(req, res) {
-  var firstName = req.body.fName;
-  var lastName = req.body.lName;
-  var email = req.body.email;
+  const firstName = req.body.fName;
+  const lastName = req.body.lName;
+  const email = req.body.email;
 
   // mailchimp needs this object to work
-  var data = {
+  const data = {
     members: [
       {
         email_address: email,
@@ -31,9 +31,9 @@ app.post("/", function(req, res) {
     ]
   };
   // json to js and back
-  var jsonData = JSON.stringify(data);
+  const jsonData = JSON.stringify(data);
   // authorization of the post
-  var options = {
+  const options = {
     url: "https://us4.api.mailchimp.com/3.0/lists/8c68dc39e8",
     method: "POST",
     headers: {
